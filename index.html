@@ -161,5 +161,6 @@ src="https://www.facebook.com/tr?id=2435136113536086&ev=PageView&noscript=1"
 
     const link = `https://wa.me/${randomPhone}?text=${encodeURIComponent(BASE_MESSAGE + ' ' + name)}`;
     this.setAttribute('href', link);
+    fbq('track', 'Contact');
   });
 </script>
