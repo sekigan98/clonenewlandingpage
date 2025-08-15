@@ -169,16 +169,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const randomPhone = NUMBERS[Math.floor(Math.random() * NUMBERS.length)];
 
     // Enviar datos al Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbylLPPPHBv8R1C7BYbOaN2nH3mf1DgvATrVAay3OhETx-BZIMH-Wuu1ztlpcjE-gTRY_A/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        numero: randomPhone,
-        nombre: name,
-        dispositivo: isMobile ? "Móvil" : "Desktop"
-      })
-    }).then(() => console.log("Datos enviados correctamente"))
-.catch(err => console.error("Error enviando a Google Sheet:", err));
+fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLScAvq8aZ4fGGCcHDpVzG4_RbRHPDdzw0AuKeBRxtaC1wGyERw/formResponse", {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: new URLSearchParams({
+    "entry.2005620554": "Juan Pérez",      // Nombre
+    "entry.1166974658": "+5491122334455", // Teléfono
+    "entry.1045781291": "Android"         // Dispositivo
+  })
+});
 
     // Crear link de WhatsApp
     const link = isMobile
