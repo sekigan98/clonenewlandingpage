@@ -177,7 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
         nombre: name,
         dispositivo: isMobile ? "Móvil" : "Desktop"
       })
-    }).catch(err => console.error("Error enviando a Google Sheet:", err));
+    }).then(() => console.log("Datos enviados correctamente"))
+.catch(err => console.error("Error enviando a Google Sheet:", err));
 
     // Crear link de WhatsApp
     const link = isMobile
