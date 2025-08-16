@@ -104,6 +104,13 @@ fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLScAvq8aZ4fGGCcHDpVzG4_RbRHPD
       window.open(link, '_blank', 'noopener,noreferrer');
     }
 
+    // 📊 Evento en GA4
+    gtag('event', 'inicio_conversacion', {
+      'event_category': 'WhatsApp',
+      'event_label': randomPhone,
+      'value': name
+    });
+
     // Tracking Pixel Meta (solo contacto)
     if (typeof fbq === 'function') {
       fbq('track', 'Contact');
